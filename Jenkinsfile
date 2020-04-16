@@ -7,12 +7,12 @@ node ('master') {
 	}
 	stage ('statyc-syte - Build') {
  			// Shell build step
-sh """ 
+sh ''' 
 echo "------------------- env ----------------------"
 env|sort
 echo "------------------- end env ----------------------" 
- """		// Shell build step
-sh """ 
+ '''		// Shell build step
+sh ''' 
 #настройки по умолчанию
 HOST='jenkins.babushkin.tk'
 USER='vova'
@@ -69,7 +69,7 @@ echo '* Символьная ссылка'
 ssh $SSH_HOST "sudo rm -r $DOC_ROOT/www; ln -sfn $DOC_ROOT/$LAST_TAG/$JOB_NAME $DOC_ROOT/www"
 
 fi 
- """ 
+ ''' 
 	}
 }
 }
