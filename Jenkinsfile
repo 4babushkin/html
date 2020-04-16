@@ -69,6 +69,10 @@ pipeline {
 					CURRENT_VERSION_HASH=$(git rev-parse HEAD)
 					#################################
 
+					## Почему - то без первого подключения с таким парамтером выдает ошибку
+					### Host key verification failed.
+					###
+					INIT_SSH=$(ssh -o StrictHostKeyChecking=no $SSH_HOST whoami)
 
 					## Проверка на изменения 
 					echo "присваиваем переменной последний хеш"
