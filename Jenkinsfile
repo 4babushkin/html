@@ -13,6 +13,7 @@ pipeline {
 	stages {  
 
 		stage ('static-syte - Checkout') {
+			steps {
 		// checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'github', url: 'git@github.com:4babushkin/html.git']]]) 
 			script {
 			// Checkout the repository and save the resulting metadata
@@ -37,6 +38,7 @@ pipeline {
 
 
 			}
+		}
 		}
 
 		stage ('static-syte - Build') {
