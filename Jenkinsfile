@@ -43,7 +43,7 @@ pipeline {
 
 		stage ('static-syte - Build') {
 			steps {
-				sshagent (credentials: ['jenkins-pub']) {
+				sshagent (credentials: ['ssh_key']) {
 						// Shell build step
 					sh ''' 
 					echo "------------------- env ----------------------"
