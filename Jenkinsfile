@@ -23,9 +23,9 @@ LOCAL_APP_FOLDER=$JOB_NAME
 SSH_HOST="$USER@$HOST"
 
 ################################
-# последний тэг  $ 0.2
+# последний тэг   0.2
 LAST_TAG=$(git describe --abbrev=0 | sed 's/^.//')
-# хэш последнего тега  $ cc2e405d0d8cace925c950694694aaff209ef6a7
+# хэш последнего тега   cc2e405d0d8cace925c950694694aaff209ef6a7
 LAST_TAG_COMMIT_HASH=$(git rev-list --tags --max-count=1)
 
 CURRENT_VERSION_HASH=$(git rev-parse HEAD)
