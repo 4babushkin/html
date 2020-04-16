@@ -43,7 +43,7 @@ pipeline {
 
 		stage ('static-syte - Build') {
 			steps {
-				sshagent (credentials: ['ssh_key']) {
+				// sshagent (credentials: ['ssh_key']) {
 						// Shell build step
 					sh ''' 
 					echo "------------------- env ----------------------"
@@ -108,7 +108,7 @@ pipeline {
 
 					fi 
 					''' 
-				}
+				// }
 			}
 		}
 	}
