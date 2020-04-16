@@ -12,11 +12,34 @@ pipeline {
 
 	stages {  
 
-		stage ('statyc-syte - Checkout') {
-		checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'github', url: 'git@github.com:4babushkin/html.git']]]) 
+		stage ('static-syte - Checkout') {
+		// checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'github', url: 'git@github.com:4babushkin/html.git']]]) 
+			script {
+			// Checkout the repository and save the resulting metadata
+			def scmVars = checkout([
+				$class: 'GitSCM',
+				doGenerateSubmoduleConfigurations: false,
+				userRemoteConfigs: [[
+					url: 'git@github.com:4babushkin/html.git',
+					credentialsId: 'github'
+				]],
+				branches: [ [name: '*/master'] ]
+				])
+
+			// Display the variable using scmVars
+			echo "scmVars.GIT_COMMIT"
+			echo "${scmVars.GIT_COMMIT}"
+
+			// Displaying the variables saving it as environment variable
+			env.GIT_COMMIT = scmVars.GIT_COMMIT
+			echo "env.GIT_COMMIT"
+			echo "${env.GIT_COMMIT}"
+
+
+			}
 		}
 
-		stage ('statyc-syte - Build') {
+		stage ('static-syte - Build') {
 		sshagent (credentials: ['githab']) {
 				// Shell build step
 			sh ''' 
