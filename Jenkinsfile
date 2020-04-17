@@ -21,8 +21,8 @@ pipeline {
 				$class: 'GitSCM',
 				doGenerateSubmoduleConfigurations: false,
 				userRemoteConfigs: [[
-					url: 'git@github.com:4babushkin/html.git',
-					credentialsId: 'github'
+					url: 'https://github.com/4babushkin/html.git',
+					credentialsId: 'github_test'
 				]],
 				branches: [ [name: '*/master'] ]
 				])
