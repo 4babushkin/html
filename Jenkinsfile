@@ -108,7 +108,7 @@ pipeline {
 
 
 					echo '* Символьная ссылка'
-					ssh $SSH_HOST "sudo rm -r $DOC_ROOT/www; ln -sfn $DOC_ROOT/$LAST_TAG/$JOB_NAME $DOC_ROOT/www"
+					ssh $SSH_HOST "ln -sfn $DOC_ROOT/$LAST_TAG/$JOB_NAME $DOC_ROOT/www"
 
 					fi 
 					''' 
